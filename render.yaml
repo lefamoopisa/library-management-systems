@@ -3,7 +3,7 @@ services:
     name: community-library
     runtime: node
     region: frankfurt
-    plan: starter
+    plan: free
     buildCommand: npm ci && npm run build
     startCommand: npm run start:server
     healthCheckPath: /api/health
@@ -12,9 +12,3 @@ services:
         value: production
       - key: HOST
         value: 0.0.0.0
-      - key: LIBRARY_DATABASE_PATH
-        value: /var/data/library.sqlite
-    disk:
-      name: library-data
-      mountPath: /var/data
-      sizeGB: 1

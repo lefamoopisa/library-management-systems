@@ -61,11 +61,12 @@ link does not start the Node server. To give people a working website link:
    repository URL or a copy of `index.html`.
 4. Open the deployed site and create a Librarian account to manage the library.
 
-The Render blueprint builds the React frontend, starts the Node API, and stores
-SQLite data on a persistent disk. Render persistent disks require a paid web
-service; check Render's current pricing before deploying. Do not remove or
-replace the disk after users have created accounts or library data. Stripe
-checkout remains unavailable because LSL is not supported.
+The Render blueprint builds the React frontend and starts the Node API on
+Render's free web-service plan. This is suitable for a shareable demo, but the
+SQLite database is stored on the service's temporary filesystem. It can be
+cleared when the service restarts, redeploys, or sleeps, so do not use this
+deployment for data that must persist. A persistent disk requires a paid web
+service. Stripe checkout remains unavailable because LSL is not supported.
 
 Opening `index.html` by itself cannot start Node.js or provide server-backed
 accounts and shared data. The full website must be opened through the local
@@ -125,12 +126,12 @@ npm run start:server
 
 GitHub can host this source repository, but GitHub Pages alone cannot run the
 Node API, SQLite database, or Stripe webhook. For a live deployment, host the
-Node server separately (or use a Node-capable host), provide HTTPS and the
-private environment variables, configure the Stripe webhook to reach
-`/api/stripe/webhook`, and attach persistent storage for `server/data`.
-Configure `PUBLIC_APP_URL` to the deployed app origin and `HOST=0.0.0.0` when
-the host requires it. Back up the SQLite database and use Stripe live keys only
-after completing a production security review.
+Node server separately (or use a Node-capable host) and provide HTTPS. The
+free Render demo uses temporary SQLite storage; for a production deployment,
+use persistent storage for `server/data`, configure `PUBLIC_APP_URL` to the
+deployed app origin and `HOST=0.0.0.0` when required, and back up the database.
+Configure the Stripe webhook to reach `/api/stripe/webhook` and use Stripe live
+keys only after completing a production security review.
 
 ## Features
 
