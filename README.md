@@ -33,9 +33,9 @@ registration before deploying this educational app for public use.
 
 The first server launch creates `server/data/library.sqlite` and seeds the
 sample collection. The database is local and ignored by Git. It contains the
-shared data for browsers connected to this server. Do not double-click
-`index.html` in File Explorer: it shows server startup instructions because a
-file opened directly cannot use the authenticated API.
+shared data for browsers connected to this server. Double-clicking `index.html`
+in File Explorer opens the live demo website and requires an internet
+connection; it does not start a separate local server.
 
 ## Assignment requirements
 
@@ -68,9 +68,10 @@ cleared when the service restarts, redeploys, or sleeps, so do not use this
 deployment for data that must persist. A persistent disk requires a paid web
 service. Stripe checkout remains unavailable because LSL is not supported.
 
-Opening `index.html` by itself cannot start Node.js or provide server-backed
-accounts and shared data. The full website must be opened through the local
-`npm start` address or the deployed Render URL.
+Opening `index.html` from File Explorer redirects to the live Render demo, so
+it needs an internet connection and uses the demo's shared server. It does not
+start Node.js on your computer. To run an independent local copy, use the
+`npm start` address instead.
 
 ## Move data from the older browser-only app
 
