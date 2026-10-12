@@ -70,7 +70,9 @@ Render's free web-service plan. This is suitable for a shareable demo, but the
 SQLite database is stored on the service's temporary filesystem. It can be
 cleared when the service restarts, redeploys, or sleeps, so do not use this
 deployment for data that must persist. A persistent disk requires a paid web
-service. Stripe checkout remains unavailable because LSL is not supported.
+service. The blueprint configures `PUBLIC_APP_URL` to the deployed site so
+authenticated browser requests from its origin are accepted. Stripe checkout
+remains unavailable because LSL is not supported.
 
 Opening `index.html` from File Explorer redirects to the live Render demo, so
 it needs an internet connection and uses the demo's shared server. It does not
