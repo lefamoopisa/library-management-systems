@@ -34,6 +34,7 @@ const allowedOrigins = new Set([
   "http://127.0.0.1:5173",
   "http://localhost:4173",
   "http://127.0.0.1:4173",
+  ...(process.env.RENDER_EXTERNAL_URL ? [new URL(process.env.RENDER_EXTERNAL_URL).origin] : []),
   ...(process.env.PUBLIC_APP_URL ? [new URL(process.env.PUBLIC_APP_URL).origin] : []),
 ]);
 
