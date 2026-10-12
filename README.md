@@ -1,5 +1,7 @@
 # Community Library Management System
 
+[Open the live Community Library website](https://lefamoopisa.github.io/library-management-systems/)
+
 A browser-based React library-management system backed by a Node.js API and
 SQLite. The server is the source of truth for accounts, roles, book stock,
 transactions, supplier orders, and customer presence. The browser keeps a
@@ -50,8 +52,10 @@ transactions across users.
 
 ## Publish the full website with GitHub and Render
 
-Pushing this project to GitHub stores the source code; opening the repository
-link does not start the Node server. To give people a working website link:
+The GitHub Pages link above redirects visitors to the live application. The
+GitHub repository URL (`github.com/lefamoopisa/library-management-systems`)
+continues to show the source code and cannot itself redirect to the app. To
+deploy or update the working website:
 
 1. Push the project to a GitHub repository.
 2. In Render, choose **New +** → **Blueprint**, connect that repository, and
